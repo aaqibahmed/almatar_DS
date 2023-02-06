@@ -1,0 +1,20 @@
+> library(readxl)
+> File_Data <- read_excel("C:/Users/Hp/Desktop/File_Data.xlsx")
+> View(File_Data)
+> salary_survey.1 <- read.csv("~/salary_survey-1.csv")
+>   View(salary_survey.1)
+> if(!require(dplyr)){install.packages('dplyr')}
+
+> library(readxl)
+> File_Data <- read_excel("C:/Users/Hp/Desktop/File_Data.xlsx")
+> View(File_Data)
+> salary_survey.1 <- read.csv("~/salary_survey-2.csv")
+>   View(salary_survey.1)
+> if(!require(dplyr)){install.packages('dplyr')}
+
+> library(readxl)
+> File_Data <- read_excel("C:/Users/Hp/Desktop/File_Data.xlsx")
+> View(File_Data)
+> salary_survey.1 <- read.csv("~/salary_survey-3.csv")
+>   View(salary_survey.1)
+> if(!require(dplyr)){install.packages('dplyr')}
