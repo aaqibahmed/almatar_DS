@@ -8,27 +8,20 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
 ```{r}
 library(readxl)
-File_Data <- read_excel("C:/Users/Hp/Desktop/File_Data.xlsx")
-View(File_Data)
 salary_survey.1 <- read.csv("~/salary_survey-1.csv")
 View(salary_survey.1)
-if(!require(dplyr)){install.packages('dplyr')}
 
 library(readxl)
-File_Data <- read_excel("C:/Users/Hp/Desktop/File_Data.xlsx")
-View(File_Data)
-salary_survey.1 <- read.csv("~/salary_survey-2.csv")
-View(salary_survey.1)
-if(!require(dplyr)){install.packages('dplyr')}
+salary_survey.2 <- read.csv("~/salary_survey-2.csv")
+View(salary_survey.2)
 
 library(readxl)
-File_Data <- read_excel("C:/Users/Hp/Desktop/File_Data.xlsx")
-View(File_Data)
-salary_survey.1 <- read.csv("~/salary_survey-3.csv")
-View(salary_survey.1)
+salary_survey.3 <- read.csv("~/salary_survey-3.csv")
+View(salary_survey.3)
 ```
 ```{r}
 if(!require(dplyr)){install.packages('dplyr')}
+install.packages("stringr")
 ```
 
 ```{r}
@@ -46,7 +39,7 @@ names(salary_survey_modified)
 View(salary_survey_modified)
 ```
 ```{r}
-salary_survey_modified <- salary_survey_modified %>% rename(Title = title)
+salary_survey_modified <- salary_survey.1 %>% rename(Title = Job.title)
 salary_survey_modified <- salary_survey_modified %>% rename( Salary = What.is.your.annual.salary.)
 salary_survey_modified <- salary_survey_modified %>% rename( Years_Experience = How.many.years.of.post.college.professional.work.experience.do.you.have.)
 salary_survey_modified <- salary_survey_modified %>% rename( Age = How.old.are.you.)
@@ -56,3 +49,18 @@ salary_survey_modified <- salary_survey_modified %>% rename( Location = Where.ar
 salary_survey_modified <- salary_survey_modified %>% rename( Job_Context = If.your.job.title.needs.additional.context..please.clarify.here.)
 salary_survey_modified <- salary_survey_modified %>% rename( Other_Currency = If..Other...please.indicate.the.currency.here..)
 ```
+```{r}
+names(salary_survey.2)
+salary_survey_modified_2 <- salary_survey.2 %>% select(-Employment.Type)
+salary_survey_modified_2$Location <- paste(salary_survey_modified_2$Primary.Location..City., salary_survey_modified_2$Primary.Location..Country., sep=",")
+salary_survey_modified_2 %>% select(-Primary.Location..Country.)
+names(salary_survey_modified_2)
+View(salary_survey_modified_2)
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
